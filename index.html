@@ -1,0 +1,45 @@
+<html ng-app="converter">
+    <head>
+       
+        <script src="node_modules/angular/angular.js"></script>
+       
+        <script src="app.js"></script>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+ 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <style>
+            .center{
+                text-align: center;
+                color:brown
+            }
+                .back{
+                        background-color: rgb(241, 241, 154); 
+                }
+            
+        </style>
+    </head>
+    <body class="back">
+        <div class="center" ng-controller="firstCtrl as first">
+            <h1>The Currency Converter using fixer API</h1>
+            
+            <br>
+          <div class="label label-pill label-primary">
+           
+            <h3>  Current Currency:</h3> 
+            <input type="text" ng-model="first.amount" ng-change="first.change()">          
+            <select ng-model="first.currency" ng-options="item.currencies as item.country for item in first.final" ng-change="first.change()">               
+            </select>
+          
+            <h3>Exchange Currency:</h3>
+            <select ng-model="first.converted" ng-options=" list.currencies as list.country for list in first.final" ng-change="first.change()">                
+            </select>
+           
+            <!-- <button ng-click="first.change()">change</button> -->
+            {{first.finalResult}}
+          </div>
+        </div>
+    </body>
+</html>
